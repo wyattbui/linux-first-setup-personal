@@ -54,13 +54,21 @@ sudo apt install gnome-tweaks
 
     https://github.com/mustafaozhan/Breeze-Adapta-Cursor
 
-    5.2. Numix theme
-    kk
-```
-sudo apt install numix-icon-theme-square
-```
+    5.4. Nordzy-cursors
 
-1. Install Flatpak
+    https://www.gnome-look.org/s/Gnome/p/1571937
+
+    5.5. Numix theme
+    
+    ```
+    sudo apt install numix-icon-theme-square
+    ```
+
+    5.6. PLANE ICON THEME
+    
+    https://www.gnome-look.org/p/1178976/
+
+6. Install Flatpak
 
 Flatpak is a software utility from Fedora which lets you get access to more applications and software packages in Linux and its various distros. Many applications you might not find in Software Center, but with the help of Flatpak, you can bypass this.
 
