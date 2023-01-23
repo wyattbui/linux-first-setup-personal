@@ -87,6 +87,7 @@ $ sudo apt-get install gnome-sushi
 # Install Vim
 
 ```
+sudo apt install vim 
 ```
 
 ### config vim
@@ -139,6 +140,7 @@ echo "source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.z
 
 ```
 cp wyatt.zsh-theme ~/.oh-my-zsh/themes 
+sed -i '11s/.*/ZSH_THEME="wyatt"/' ~/.zshrc
 ```
 
 # Install NodeJS
