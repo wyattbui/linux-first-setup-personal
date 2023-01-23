@@ -95,6 +95,7 @@ https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-e
 
 ```
 cat > ~/.vimrc << EOF
+set number
 set shiftwidth=4
 set tabstop=4
 set expandtab
