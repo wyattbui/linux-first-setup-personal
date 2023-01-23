@@ -84,7 +84,33 @@ Well, the same can be done on Ubuntu with GNOME Sushi which uses Nautilus, which
 ```
 $ sudo apt-get install gnome-sushi
 ```
+# Install Vim
 
+```
+```
+
+### config vim
+
+https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/
+
+```
+cat > ~/.vimrc << EOF
+set shiftwidth=4
+set tabstop=4
+set expandtab
+set nobackup
+set scrolloff=10
+set nowrap
+set incsearch
+set ignorecase
+set smartcase
+set showcmd
+set showmode
+set showmatch
+set hlsearch
+set history=1000
+EOF
+```
 # Install Zsh
 
 1. Install zsh
@@ -100,36 +126,40 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 ```
 ```
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+
+echo "source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc                           
 ```
 
 ```
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
+
+echo "source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc
+```
+
+```
+cp wyatt.zsh-theme ~/.oh-my-zsh/themes 
 ```
 
 # Install NodeJS
 
 ```
-   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-```
-
-```   
-   export NVM_DIR="$HOME/.nvm"                                                                                             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm                                                      [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion  '
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 ```
 
 ```
-   export NVM_DIR="$HOME/.nvm"                                                                                             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm                                                      [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion  
+export NVM_DIR="$HOME/.nvm"                                                                                             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm                                                      [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion  
 ```
    
 ```
-   export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 ```
 
 ```
-   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 ```
 
 ```
-   nvm install --lts
+nvm install --lts
 ```
 
 # Install VS code
