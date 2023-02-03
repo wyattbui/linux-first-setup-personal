@@ -228,4 +228,16 @@ If the command docker-compose fails after installation, check your path. You can
 
 ### Install MySQL
 
-### 
+###  Ibus
+
+### Install Vitals - System Monitor
+
+Install support packages
+```
+sudo apt install gnome-shell-extension-manager gir1.2-gtop-2.0 lm-sensors
+```
+
+Install at: https://extensions.gnome.org/extension/1460/vitals/
+
+
+Detail at: https://github.com/corecoding/Vitals
