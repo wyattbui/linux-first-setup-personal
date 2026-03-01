@@ -1,3 +1,6 @@
+#New tool
+New generation of CLI tools appeared, built with Rust and Go for performance and cross-platform compatibility: `rg`, `bat`, `eza`, `fd`, `zoxide`, `atuin`, `uv`, `yazi`, `btop`, `fzf`, `lazygit`, `lazydocker`, `k9s` ...etc.
+
 # Setup basic
 1. Check For Updates
 ```
