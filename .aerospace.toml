@@ -24,9 +24,13 @@ outer.bottom = 10
 
 # ---------- Gán workspace cố định theo màn hình ----------
 [workspace-to-monitor-force-assignment]
-2 = 'DELL P2425HE'              # VS Code
-Q = 'DELL P2425HE'              # Ghostty
-W = 'DELL P2425HE'              # Claude
+# Màn ngoài: thử DELL trước, không có thì thử màn tên chứa "LG",
+# vẫn không có thì fallback về màn phụ (secondary) bất kỳ đang cắm
+2 = ['DELL P2425HE', 'LG.*', 'secondary']   # VS Code
+Q = ['DELL P2425HE', 'LG.*', 'secondary']   # Ghostty
+W = ['DELL P2425HE', 'LG.*', 'secondary']   # Claude
+
+# Màn built-in luôn ổn định vì gắn liền máy, không đổi theo môi trường
 1 = 'Built-in Retina Display'   # Chrome
 3 = 'Built-in Retina Display'   # Teams
 4 = 'Built-in Retina Display'   # DBX (database GUI)
