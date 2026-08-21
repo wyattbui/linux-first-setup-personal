@@ -1,0 +1,139 @@
+# ---------- Cơ bản ----------
+config-version = 2
+start-at-login = true
+
+# Khi AeroSpace khởi động: mở VS Code, Ghostty, Claude và gộp chung vào workspace 2
+after-startup-command = ['exec-and-forget /Users/huynh.bui/.config/aerospace/start-dev-workspace.sh']
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+accordion-padding = 30
+
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+
+# Chuột tự nhảy theo khi đổi focus sang màn hình khác
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+[gaps]
+inner.horizontal = 10
+inner.vertical = 10
+outer.left = 10
+outer.right = 10
+outer.top = 10
+outer.bottom = 10
+
+# ---------- Gán workspace cố định theo màn hình ----------
+[workspace-to-monitor-force-assignment]
+2 = 'DELL P2425HE'              # VS Code
+Q = 'DELL P2425HE'              # Ghostty
+W = 'DELL P2425HE'              # Claude
+1 = 'Built-in Retina Display'   # Chrome
+3 = 'Built-in Retina Display'   # Teams
+4 = 'Built-in Retina Display'   # DBX (database GUI)
+5 = 'Built-in Retina Display'   # OrbStack
+
+# ---------- Main mode: điều hướng, swap, resize ----------
+[mode.main.binding]
+# Focus (Vim-style)
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+# Nhảy focus sang màn hình khác (không đổi workspace, không di chuyển cửa sổ)
+alt-cmd-h = 'focus-monitor prev'
+alt-cmd-l = 'focus-monitor next'
+
+# Đẩy cửa sổ đang focus sang màn hình khác (workspace hiện tại giữ nguyên)
+alt-cmd-shift-h = 'move-node-to-monitor prev'
+alt-cmd-shift-l = 'move-node-to-monitor next'
+
+# Swap vị trí cửa sổ
+ctrl-h = 'move left'
+ctrl-j = 'move down'
+ctrl-k = 'move up'
+ctrl-l = 'move right'
+
+# Resize
+alt-minus = 'resize smart -50'
+alt-equal = 'resize smart +50'
+alt-0 = 'balance-sizes'
+
+# Đổi hướng layout nhanh
+alt-slash = 'layout tiles horizontal vertical'
+alt-comma = 'layout accordion horizontal vertical'
+
+# Vào Service Mode
+alt-shift-semicolon = 'mode service'
+
+# Nhảy nhanh về workspace vừa dùng trước đó (tiện khi chỉ có 1 màn hình)
+alt-tab = 'workspace-back-and-forth'
+
+# Chuyển workspace giữa 2 màn hình (bỏ comment nếu muốn dùng)
+# alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+# Workspace <-> App (mở nếu chưa chạy, focus nếu đang chạy)
+alt-1 = ['workspace 1', 'exec-and-forget open -a "Google Chrome"']
+alt-2 = ['workspace 2', 'exec-and-forget open -a "Visual Studio Code"']
+alt-q = ['workspace Q', 'exec-and-forget open -a "Ghostty"']
+alt-w = ['workspace W', 'exec-and-forget open -a "Claude"']
+alt-3 = ['workspace 3', 'exec-and-forget open -a "Microsoft Teams"']
+alt-4 = ['workspace 4', 'exec-and-forget open -a "DBX"']
+alt-5 = ['workspace 5', 'exec-and-forget open -a "OrbStack"']
+
+alt-shift-1 = 'move-node-to-workspace 1'
+alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-q = 'move-node-to-workspace Q'
+alt-shift-w = 'move-node-to-workspace W'
+alt-shift-3 = 'move-node-to-workspace 3'
+alt-shift-4 = 'move-node-to-workspace 4'
+alt-shift-5 = 'move-node-to-workspace 5'
+
+# ---------- Service Mode: join/split, fullscreen, thoát ----------
+[mode.service.binding]
+esc = ['reload-config', 'mode main']
+r = ['flatten-workspace-tree', 'mode main']
+
+f = ['fullscreen', 'mode main']
+t = ['layout floating tiling', 'mode main']
+
+# Join cửa sổ đang focus với hướng chỉ định (dùng để dựng grid)
+alt-shift-h = ['join-with left', 'mode main']
+alt-shift-j = ['join-with down', 'mode main']
+alt-shift-k = ['join-with up', 'mode main']
+alt-shift-l = ['join-with right', 'mode main']
+
+backspace = ['close', 'mode main']
+
+# ---------- Route app -> workspace khi mở ----------
+# LƯU Ý: kiểm tra lại từng app-id bằng lệnh:
+#   osascript -e 'id of app "Ten_App"'
+# rồi sửa lại cho khớp trước khi dùng.
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = 'move-node-to-workspace Q'
+
+[[on-window-detected]]
+if.app-id = 'com.anthropic.claudefordesktop'
+run = 'move-node-to-workspace W'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams2'
+run = 'move-node-to-workspace 3'
+
+[[on-window-detected]]
+if.app-id = 'com.dbx.app'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-id = 'dev.kdrag0n.MacVirt'
+run = 'move-node-to-workspace 5'
